@@ -1,0 +1,26 @@
+{
+    "name": "humbug/phpspec-speedy",
+    "description": "Collection of Listeners to log spec times, prioritise specs, and free memory after each spec",
+    "type": "library",
+    "keywords": ["phpspec", "speedy", "extension", "humbug", "example"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Padraic Brady",
+            "email": "padraic.brady@gmail.com",
+            "homepage": "http://blog.astrumfutura.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "phpspec/phpspec": "2.0.*"
+    },
+    "autoload": {
+        "psr-0": { "Humbug\\": "src/"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
