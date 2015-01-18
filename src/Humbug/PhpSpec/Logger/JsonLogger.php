@@ -19,7 +19,7 @@ class JsonLogger
 
     private $target;
 
-    public function __construct($file = null)
+    public function __construct($target = null)
     {
         if (null !== $target) {
             $this->target = $target;
@@ -30,10 +30,7 @@ class JsonLogger
 
     public function logSpecification($title, $time)
     {
-        $this->specifications = [
-            'title' => $title,
-            'time' => $time
-        ];
+        $this->specifications[$title] = $time;
     }
 
     public function logExample($spec, $title, $time)
@@ -41,7 +38,7 @@ class JsonLogger
         if (!isset($this->examples[$spec])) {
             $this->examples[$spec] = [];
         }
-        $this->examples[$spec] = [
+        $this->examples[$spec][] = [
             'title' => $title,
             'time' => $time
         ];
@@ -51,7 +48,13 @@ class JsonLogger
     {
         file_put_contents(
             $this->target,
-            json_encode(['specifications'=>$this->specifications, 'examples'=>$this->examples])
+            json_encode(
+                [
+                    'specifications' => $this->specifications,
+                    'examples' => $this->examples
+                ],
+                JSON_PRETTY_PRINT
+            )
         );
     }
 }

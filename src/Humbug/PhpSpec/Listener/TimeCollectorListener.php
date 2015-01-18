@@ -14,6 +14,7 @@ use Humbug\PhpSpec\Logger\JsonLogger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use PhpSpec\Event\ExampleEvent;
 use PhpSpec\Event\SpecificationEvent;
+use PhpSpec\Event\SuiteEvent;
 
 class TimeCollectorListener implements EventSubscriberInterface
 {
@@ -35,7 +36,7 @@ class TimeCollectorListener implements EventSubscriberInterface
     public function afterExample(ExampleEvent $event)
     {
         $this->logger->logExample(
-            $this->getSpecification()->getTitle(),
+            $event->getSpecification()->getTitle(),
             $event->getTitle(),
             $event->getTime()
         );
