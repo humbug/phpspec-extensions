@@ -22,6 +22,10 @@ class FastestFirstFilter implements FilterInterface
     public function filter(array $array)
     {
         $times = $this->loadTimes();
+
+        if (empty($array) || !isset($times['examples'][$this->getSpecificationTitle()])) {
+            return $array;
+        }
         $relevant = $times['examples'][$this->getSpecificationTitle()];
         
         usort($array, function(ExampleNode $a, ExampleNode $b) use ($relevant) {
