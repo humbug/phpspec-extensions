@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Humbug\PhpSpec\Loader\Filter\Specification;
+namespace spec\Humbug\PhpSpec\Loader\Filter\Example;
 
 use PhpSpec\ObjectBehavior;
 
@@ -9,9 +9,9 @@ class ShuffleFilterSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Specification\\ShuffleFilter');
+        $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\ShuffleFilter');
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\FilterInterface');
-        $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Specification\\FilterInterface');
+        $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\FilterInterface');
     }
 
     function it_shuffles_a_given_array()
