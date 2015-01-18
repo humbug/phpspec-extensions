@@ -22,8 +22,8 @@ extensions:
 ```
 
 This is for illustrative purposes. Filters are applied in the order listed
-in the configuration, so technically the FastestFirstFilter would be overridden
-by the ShuffleFilter for specs above.
+in the configuration, so technically the FastestFirstFilter would be undone
+by the ShuffleFilter for specs in the above. All filters are applied not replaced.
 
 This extension is primarily targeted at Humbug, but are reusable/extendable for
 any other purpose. Knock yourself out!
