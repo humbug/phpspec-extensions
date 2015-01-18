@@ -12,6 +12,6 @@ namespace Humbug\PhpSpec\Loader\Filter\Specification;
 
 use Humbug\PhpSpec\Loader\Filter\FilterInterface as BaseInterface;
 
-interface FilterInterface extends BaseInterface
+abstract class AbstractFilter implements BaseInterface
 {
 }

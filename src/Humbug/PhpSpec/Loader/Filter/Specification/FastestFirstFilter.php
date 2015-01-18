@@ -12,7 +12,7 @@ namespace Humbug\PhpSpec\Loader\Filter\Specification;
 
 use PhpSpec\Loader\Node\SpecificationNode;
 
-class FastestFirstFilter implements FilterInterface
+class FastestFirstFilter extends AbstractFilter
 {
 
     private $log;
