@@ -92,6 +92,7 @@ class FilteredResourceLoader extends ResourceLoader
 
             foreach ($this->filters as $filter) {
                 if ($filter instanceof ExampleFilterInterface) {
+                    $filter->setSpecificationTitle($spec->getTitle());
                     $examples = $filter->filter($examples);
                 }
             }
