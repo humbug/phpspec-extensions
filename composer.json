@@ -1,5 +1,5 @@
 {
-    "name": "humbug/phpspec-speedy",
+    "name": "padraic/phpspec-extensions",
     "description": "Collection of Listeners to log spec times, prioritise specs, and free memory after each spec",
     "type": "library",
     "keywords": ["phpspec", "speedy", "extension", "humbug", "example"],
