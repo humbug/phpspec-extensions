@@ -13,7 +13,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "phpspec/phpspec": "~2.0"
     },
     "autoload": {
         "psr-4": { "Humbug\\PhpSpec\\": "src/Humbug/PhpSpec"}
