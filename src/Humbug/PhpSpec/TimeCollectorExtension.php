@@ -25,7 +25,7 @@ class TimeCollectorExtension implements ExtensionInterface
     {
         $container->set('event_dispatcher.listeners.time_collector', function ($c) {
             return new TimeCollectorListener(
-                new JsonLogger
+                new JsonLogger($c->getParam('humbug.time_collector.target'))
             );
         });
     }
