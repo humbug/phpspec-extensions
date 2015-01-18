@@ -1,7 +1,1 @@
 code_generation: false
-suites:
-    humbug_phpspec:
-        namespace: Humbug\PhpSpec
-        psr4_prefix: Humbug\PhpSpec
-        src_path: src/
-        spec_prefix: spec\
