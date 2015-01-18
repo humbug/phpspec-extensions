@@ -6,7 +6,7 @@ A collection of extensions intended to allow for:
 * Freeing of memory by removing specification properties after execution
 * Filter/Reorder both specifications and examples using custom filters
 
-An example phpspec.yml configuration (see usable examples below):
+Available phpspec.yml options (see usable examples below):
 
 ```yaml
 formatter.name: pretty
@@ -21,18 +21,30 @@ extensions:
 - Humbug\PhpSpec\FreeMemoryExtension
 ```
 
-This is for illustrative purposes to show all options. Filters are applied in the order listed
+This is for illustrative purposes only to show all options. See the usage examples
+below for working combinations of options. Generally, you can write separate yml files
+and load them selectively using phpspec's -c option. Filters are applied in the order listed
 in the configuration, so technically the FastestFirstFilter would be undone
-by the ShuffleFilter for specs in the above. All filters are applied not replaced.
+by the ShuffleFilter for specs in the above. All filters are supplied a referenced
+array of either examples or specifications to play with.
 
 These extensions are primarily targeted at Humbug, but are reusable/extendable for
 any other purpose. Knock yourself out!
+
+Installation
+============
+
+```json
+require: {
+   "padraic/phpspec-extensions": "dev-master"
+}
+```
 
 Usage Examples
 ==============
 
 Free memory after running a specification. This clears out any non phpspec properties
-on the class:
+on the class which may improve performance somewhat:
 
 ```yaml
 formatter.name: pretty
@@ -40,7 +52,8 @@ extensions:
 - Humbug\PhpSpec\FreeMemoryExtension
 ```
 
-Generate timing data:
+Generate timing data for any timing related filters (run prior to activating
+such filters):
 
 ```yaml
 formatter.name: pretty
@@ -63,7 +76,8 @@ extensions:
 ```
 
 Worried about any odd inter-example or inter-specification dependencies?
-Root them out:
+Root them out by shuffling examples and specifications. Specification position in
+a suite, or example position in a specification, will be randomly distributed.
 
 ```yaml
 formatter.name: pretty
