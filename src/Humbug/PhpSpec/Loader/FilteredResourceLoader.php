@@ -92,26 +92,28 @@ class FilteredResourceLoader extends ResourceLoader
 
             foreach ($this->filters as $filter) {
                 if ($filter instanceof ExampleFilterInterface) {
-                    $filter->filter($examples);
+                    $examples = $filter->filter($examples);
                 }
             }
 
             foreach($examples as $example) {
                 $spec->addExample($example);
             }
+            unset($examples);
 
             $specifications[] = $spec;
         }
 
         foreach ($this->filters as $filter) {
             if ($filter instanceof SpecFilterInterface) {
-                $filter->filter($specifications);
+                $specifications = $filter->filter($specifications);
             }
         }
 
         foreach ($specifications as $spec) {
             $suite->addSpecification($spec);
         }
+        unset($specifications);
 
         return $suite;
     }

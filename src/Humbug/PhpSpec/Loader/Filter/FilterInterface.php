@@ -13,6 +13,6 @@ namespace Humbug\PhpSpec\Loader\Filter;
 interface FilterInterface
 {
 
-    public function filter(array &$array);
+    public function filter(array $array);
     
 }

@@ -17,7 +17,7 @@ class FastestFirstFilter implements FilterInterface
 
     private $log;
 
-    public function filter(array &$array)
+    public function filter(array $array)
     {
         $times = $this->loadTimes();
         asort($times['specifications'], SORT_NUMERIC);
@@ -30,6 +30,7 @@ class FastestFirstFilter implements FilterInterface
             }
             return 1;
         });
+        return $array;
     }
 
     public function setLoggerFile($log)

@@ -13,9 +13,10 @@ namespace Humbug\PhpSpec\Loader\Filter\Example;
 class ShuffleFilter implements FilterInterface
 {
 
-    public function filter(array &$array)
+    public function filter(array $array)
     {
         shuffle($array);
+        return $array;
     }
 
 }

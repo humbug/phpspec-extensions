@@ -51,7 +51,7 @@ class FreeMemoryListener implements EventSubscriberInterface
 
     private function isNotPhpSpecProperty(\ReflectionProperty $property)
     {
-        return 0 !== strpos($property->getDeclaringClass()->getName(), 'PhpSpec\\');
+        return 0 !== strpos($property->getDeclaringClass()->getName(), 'PhpSpec\\') || $property->getName() == 'examples';
     }
 
     private function freeProperty(SpecificationNode $spec, \ReflectionProperty $property)
