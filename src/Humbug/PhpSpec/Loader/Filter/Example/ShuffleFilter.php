@@ -10,25 +10,13 @@
 
 namespace Humbug\PhpSpec\Loader\Filter\Example;
 
-class ShuffleFilter implements FilterInterface
+class ShuffleFilter extends AbstractFilter
 {
-
-    private $specificationTitle;
 
     public function filter(array $array)
     {
         shuffle($array);
         return $array;
-    }
-
-    public function setSpecificationTitle($title)
-    {
-        $this->specificationTitle = $title;
-    }
-
-    public function getSpecificationTitle()
-    {
-        return $this->specificationTitle;
     }
 
 }

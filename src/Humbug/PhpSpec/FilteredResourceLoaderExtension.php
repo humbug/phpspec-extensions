@@ -26,12 +26,16 @@ class FilteredResourceLoaderExtension implements ExtensionInterface
             $filters = $c->getParam('humbug.filtered_resource_loader.filters');
             $filteredResourceLoader = new FilteredResourceLoader($c->get('locator.resource_manager'));
             if (null !== $filters && is_array($filters)) {
+
                 foreach ($filters as $class) {
                     $filter = new $class;
-                    if ($class === 'Humbug\PhpSpec\Loader\Filter\Specification\FastestFirstFilter'
+
+                    if (($class === 'Humbug\PhpSpec\Loader\Filter\Specification\FastestFirstFilter'
+                    || $class === 'Humbug\PhpSpec\Loader\Filter\Example\FastestFirstFilter')
                     && null !== $c->getParam('humbug.time_collector.target')) {
                         $filter->setLoggerFile($c->getParam('humbug.time_collector.target'));
                     }
+
                     $filteredResourceLoader->addFilter($filter);
                 }
             }

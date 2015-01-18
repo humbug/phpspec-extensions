@@ -12,6 +12,18 @@ namespace Humbug\PhpSpec\Loader\Filter\Example;
 
 use Humbug\PhpSpec\Loader\Filter\FilterInterface as BaseInterface;
 
-interface FilterInterface extends BaseInterface
+abstract class AbstractFilter implements BaseInterface
 {
+
+    private $specificationTitle;
+
+    public function setSpecificationTitle($title)
+    {
+        $this->specificationTitle = $title;
+    }
+
+    public function getSpecificationTitle()
+    {
+        return $this->specificationTitle;
+    }
 }

@@ -12,12 +12,10 @@ namespace Humbug\PhpSpec\Loader\Filter\Example;
 
 use PhpSpec\Loader\Node\ExampleNode;
 
-class FastestFirstFilter implements FilterInterface
+class FastestFirstFilter extends AbstractFilter
 {
 
     private $log;
-
-    private $specificationTitle;
 
     public function filter(array $array)
     {
@@ -52,16 +50,6 @@ class FastestFirstFilter implements FilterInterface
         });
 
         return $array;
-    }
-
-    public function setSpecificationTitle($title)
-    {
-        $this->specificationTitle = $title;
-    }
-
-    public function getSpecificationTitle()
-    {
-        return $this->specificationTitle;
     }
 
     public function setLoggerFile($log)

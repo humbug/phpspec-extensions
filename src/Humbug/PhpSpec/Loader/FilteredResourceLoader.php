@@ -11,8 +11,8 @@
 namespace Humbug\PhpSpec\Loader;
 
 use Humbug\PhpSpec\Loader\Filter\FilterInterface as BaseFilterInterface;
-use Humbug\PhpSpec\Loader\Filter\Specification\FilterInterface as SpecFilterInterface;
-use Humbug\PhpSpec\Loader\Filter\Example\FilterInterface as ExampleFilterInterface;
+use Humbug\PhpSpec\Loader\Filter\Specification\AbstractFilter as SpecFilter;
+use Humbug\PhpSpec\Loader\Filter\Example\AbstractFilter as ExampleFilter;
 use PhpSpec\Loader\ResourceLoader;
 use PhpSpec\Loader\Suite;
 use PhpSpec\Loader\Node;
@@ -91,7 +91,7 @@ class FilteredResourceLoader extends ResourceLoader
             }
 
             foreach ($this->filters as $filter) {
-                if ($filter instanceof ExampleFilterInterface) {
+                if ($filter instanceof ExampleFilter) {
                     $filter->setSpecificationTitle($spec->getTitle());
                     $examples = $filter->filter($examples);
                 }
@@ -106,7 +106,7 @@ class FilteredResourceLoader extends ResourceLoader
         }
 
         foreach ($this->filters as $filter) {
-            if ($filter instanceof SpecFilterInterface) {
+            if ($filter instanceof SpecFilter) {
                 $specifications = $filter->filter($specifications);
             }
         }
