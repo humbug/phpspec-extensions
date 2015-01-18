@@ -1,7 +1,7 @@
 Humbug PHPSpec Extensions
 =========================
 
-A collection of extensions intend to allow for:
+A collection of extensions intended to allow for:
 * Timing of specification and example execution
 * Freeing of memory by removing specification properties after execution
 * Filter/Reorder both specifications and examples using custom filters
