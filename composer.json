@@ -18,7 +18,7 @@
         "phpspec/phpspec": "~2.0@dev"
     },
     "autoload": {
-        "psr-4": { "Humbug\\PhpSpec\\": "src/Humbug/PhpSpec"}
+        "psr-4": { "Humbug\\PhpSpec\\": "src"}
     },
     "extra": {
         "branch-alias": {
