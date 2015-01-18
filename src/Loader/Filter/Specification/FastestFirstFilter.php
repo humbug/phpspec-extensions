@@ -44,7 +44,9 @@ class FastestFirstFilter implements FilterInterface
         }
         if (!file_exists($this->log)) {
             throw new \Exception(sprintf(
-                'Log file for collected times does not exist: %s',
+                'Log file for collected times does not exist: %s. '
+                . 'Use the Humbug\PhpSpec\TimeCollectorExtension extension prior '
+                . 'to using the FastestFirstFilter filter at least once',
                 $this->log
             ));
         }
