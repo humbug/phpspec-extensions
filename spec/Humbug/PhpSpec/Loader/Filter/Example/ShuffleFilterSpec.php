@@ -11,7 +11,7 @@ class ShuffleFilterSpec extends ObjectBehavior
     {
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\ShuffleFilter');
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\FilterInterface');
-        $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\FilterInterface');
+        $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\AbstractFilter');
     }
 
     function it_shuffles_a_given_array()

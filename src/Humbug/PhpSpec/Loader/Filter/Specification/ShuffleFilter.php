@@ -11,6 +11,7 @@
 namespace Humbug\PhpSpec\Loader\Filter\Specification;
 
 class ShuffleFilter extends AbstractFilter
+{
 
     public function filter(array $array)
     {
