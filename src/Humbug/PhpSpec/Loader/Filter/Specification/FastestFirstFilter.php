@@ -20,8 +20,7 @@ class FastestFirstFilter extends AbstractFilter
     public function filter(array $array)
     {
         $times = $this->loadTimes();
-        asort($times['specifications'], SORT_NUMERIC);
-        @usort($array, function (SpecificationNode $a, SpecificationNode $b) use (&$times) {
+        @usort($array, function (SpecificationNode $a, SpecificationNode $b) use ($times) {
             if ($times['specifications'][$a->getTitle()] == $times['specifications'][$b->getTitle()]) {
                 return 0;
             }
