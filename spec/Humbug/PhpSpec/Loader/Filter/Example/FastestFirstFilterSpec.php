@@ -42,7 +42,7 @@ class FastestFirstFilterSpec extends ObjectBehavior
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\AbstractFilter');
     }
 
-    function it_shuffles_a_given_array(ExampleNode $a, ExampleNode $b, ExampleNode $c)
+    function it_orders_an_array_of_example_nodes(ExampleNode $a, ExampleNode $b, ExampleNode $c)
     {
         $a->getTitle()->willReturn('bar1');
         $b->getTitle()->willReturn('bar2');
