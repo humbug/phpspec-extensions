@@ -26,7 +26,7 @@ class FastestFirstFilter extends AbstractFilter
         }
         $relevant = $times['examples'][$this->getSpecificationTitle()];
         
-        usort($array, function(ExampleNode $a, ExampleNode $b) use ($relevant) {
+        @usort($array, function(ExampleNode $a, ExampleNode $b) use ($relevant) {
             $ua = 0;
             $ub = 0;
             foreach ($relevant as $entry) {
