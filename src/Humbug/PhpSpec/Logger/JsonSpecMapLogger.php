@@ -26,11 +26,12 @@ class JsonSpecMapLogger
         $this->target = sys_get_temp_dir() . '/phpspec.specmap.humbug.json';
     }
 
-    public function logSpecification($file, $title, $class)
+    public function logSpecification($srcFile, $specTitle, $specClass, $srcClass)
     {
-        $this->classes[$file] = [
-            'spec' => $title,
-            'class' => $class
+        $this->classes[$srcFile] = [
+            'specTitle' => $specTitle,
+            'specClass' => $specClass,
+            'srcClass' => $srcClass
         ];
     }
 

@@ -38,6 +38,7 @@ class SpecMapperListener implements EventSubscriberInterface
         $resource = $node->getResource();
         $this->logger->logSpecification(
             $resource->getSrcFilename(),
+            $node->getTitle(),
             $node->getClassReflection()->name,
             $resource->getSrcNamespace() . '\\' . $resource->getSrcClassname()
         );

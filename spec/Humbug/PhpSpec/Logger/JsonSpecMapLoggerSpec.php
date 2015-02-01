@@ -15,12 +15,13 @@ class JsonSpecMapLoggerSpec extends ObjectBehavior
 
     function it_logs_specifications()
     {
-        $this->logSpecification('/path/to/Foo', 'FooSpec', 'Foo');
+        $this->logSpecification('/path/to/Foo', 'FooSpec', 'spec\Foo', 'Foo');
         $this->write();
         $expected = [
             '/path/to/Foo' => [
-                'spec' => 'FooSpec',
-                'class' => 'Foo'
+                'specTitle' => 'FooSpec',
+                'specClass' => 'spec\Foo',
+                'srcClass' => 'Foo'
             ]
         ];
         $this->shouldHaveWrittenLog($expected);
