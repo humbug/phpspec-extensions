@@ -28,6 +28,7 @@ class SpecMapperListener implements EventSubscriberInterface
     {
         return [
             'afterSpecification' => ['afterSpecification', -10],
+            'afterSuite' => ['afterSuite', -10]
         ];
     }
 
