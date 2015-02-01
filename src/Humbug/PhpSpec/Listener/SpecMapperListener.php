@@ -36,7 +36,7 @@ class SpecMapperListener implements EventSubscriberInterface
         $this->logger->logSpecification(
             $event->getClass()->getFile(),
             $event->getTitle(),
-            $event->getClass()->name,
+            $event->getClass()->name
         );
     }
 
