@@ -10,16 +10,16 @@
 
 namespace Humbug\PhpSpec\Listener;
 
-use Humbug\PhpSpec\Logger\JsonTimeLogger;
+use Humbug\PhpSpec\Logger\JsonSpecMapLogger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use PhpSpec\Event\ExampleEvent;
 use PhpSpec\Event\SpecificationEvent;
 use PhpSpec\Event\SuiteEvent;
 
-class TimeCollectorListener implements EventSubscriberInterface
+class SpecMapperListener implements EventSubscriberInterface
 {
 
-    public function __construct(JsonTimeLogger $logger)
+    public function __construct(JsonSpecMapLogger $logger)
     {
         $this->logger = $logger;
     }
@@ -28,18 +28,7 @@ class TimeCollectorListener implements EventSubscriberInterface
     {
         return [
             'afterSpecification' => ['afterSpecification', -10],
-            'afterExample' => ['afterExample', -10],
-            'afterSuite' => ['afterSuite', -10]
         ];
-    }
-
-    public function afterExample(ExampleEvent $event)
-    {
-        $this->logger->logExample(
-            $event->getSpecification()->getTitle(),
-            $event->getTitle(),
-            $event->getTime()
-        );
     }
 
     public function afterSpecification(SpecificationEvent $event)

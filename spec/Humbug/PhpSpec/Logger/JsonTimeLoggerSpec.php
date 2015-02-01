@@ -2,15 +2,15 @@
 
 namespace spec\Humbug\PhpSpec\Logger;
 
-use Humbug\PhpSpec\Logger\JsonLogger;
+use Humbug\PhpSpec\Logger\JsonTimeLogger;
 use PhpSpec\ObjectBehavior;
 
-class JsonLoggerSpec extends ObjectBehavior
+class JsonTimeLoggerSpec extends ObjectBehavior
 {
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('\\Humbug\\PhpSpec\\Logger\\JsonLogger');
+        $this->shouldHaveType('\\Humbug\\PhpSpec\\Logger\\JsonTimeLogger');
     }
 
     function it_logs_specifications()

@@ -10,12 +10,12 @@
 
 namespace Humbug\PhpSpec;
 
-use Humbug\PhpSpec\Listener\TimeCollectorListener;
-use Humbug\PhpSpec\Logger\JsonTimeLogger;
+use Humbug\PhpSpec\Listener\SpecMapperListener;
+use Humbug\PhpSpec\Logger\JsonSpecMapLogger;
 use PhpSpec\Extension\ExtensionInterface;
 use PhpSpec\ServiceContainer;
 
-class TimeCollectorExtension implements ExtensionInterface
+class SpecMapperExtension implements ExtensionInterface
 {
 
     /**
@@ -23,9 +23,9 @@ class TimeCollectorExtension implements ExtensionInterface
      */
     public function load(ServiceContainer $container)
     {
-        $container->set('event_dispatcher.listeners.time_collector', function ($c) {
-            return new TimeCollectorListener(
-                new JsonTimeLogger($c->getParam('humbug.time_collector.target'))
+        $container->set('event_dispatcher.listeners.spec_mapper', function ($c) {
+            return new SpecMapperListener(
+                new JsonSpecMapLogger($c->getParam('humbug.spec_mapper.target'))
             );
         });
     }

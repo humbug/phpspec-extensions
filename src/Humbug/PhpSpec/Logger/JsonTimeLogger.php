@@ -10,7 +10,7 @@
 
 namespace Humbug\PhpSpec\Logger;
 
-class JsonLogger
+class JsonTimeLogger
 {
 
     private $specifications = [];
