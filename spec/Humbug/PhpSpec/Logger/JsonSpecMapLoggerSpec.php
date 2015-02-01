@@ -1,0 +1,37 @@
+<?php
+
+namespace spec\Humbug\PhpSpec\Logger;
+
+use Humbug\PhpSpec\Logger\JsonSpecMapLogger;
+use PhpSpec\ObjectBehavior;
+
+class JsonSpecMapLoggerSpec extends ObjectBehavior
+{
+
+    function it_is_initializable()
+    {
+        $this->shouldHaveType('\\Humbug\\PhpSpec\\Logger\\JsonSpecMapLogger');
+    }
+
+    function it_logs_specifications()
+    {
+        $this->logSpecification('/path/to/Foo', 'FooSpec', 'Foo');
+        $this->write();
+        $expected = [
+            '/path/to/Foo' => [
+                'spec' => 'FooSpec',
+                'class' => 'Foo'
+            ]
+        ];
+        $this->shouldHaveWrittenLog($expected);
+    }
+
+    public function getMatchers()
+    {
+        return [
+            'haveWrittenLog' => function($subject, $value) {
+                return $value === json_decode(file_get_contents(sys_get_temp_dir() . '/phpspec.specmap.humbug.json'), true);
+            }
+        ];
+    }
+}
