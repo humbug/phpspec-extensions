@@ -37,7 +37,7 @@ class FilteredResourceLoaderExtension implements ExtensionInterface
                     }
 
                     if (($class === 'Humbug\PhpSpec\Loader\Filter\Specification\IncludeOnlyFilter'
-                    && null !== $c->getParam('humbug.filter.include_only.specs')) {
+                    && null !== $c->getParam('humbug.filter.include_only.specs'))) {
                         $filter->setSpecs($c->getParam('humbug.filter.include_only.specs'));
                     }
 
