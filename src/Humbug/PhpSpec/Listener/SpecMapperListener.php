@@ -34,10 +34,12 @@ class SpecMapperListener implements EventSubscriberInterface
 
     public function afterSpecification(SpecificationEvent $event)
     {
+        $node = $event->getSpecification();
+        $resource = $node->getResource();
         $this->logger->logSpecification(
-            $event->getSpecification()->getResource()->getSrcFilename(),
-            $event->getSpecification()->getTitle(),
-            $event->getSpecification()->getResource()->getSrcClassname()
+            $resource->getSrcFilename(),
+            $node->getClassReflection()->name,
+            $resource->getSrcNamespace() . '\\' . $resource->getSrcClassname()
         );
     }
 
