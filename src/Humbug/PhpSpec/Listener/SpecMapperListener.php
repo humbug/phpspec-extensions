@@ -40,7 +40,7 @@ class SpecMapperListener implements EventSubscriberInterface
             $resource->getSrcFilename(),
             $node->getTitle(),
             $node->getClassReflection()->name,
-            $resource->getSrcNamespace() . '\\' . $resource->getSrcClassname()
+            $resource->getSrcClassname()
         );
     }
 
