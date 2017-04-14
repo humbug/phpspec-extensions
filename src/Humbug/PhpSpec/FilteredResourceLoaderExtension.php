@@ -1,9 +1,9 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
@@ -16,7 +16,6 @@ use PhpSpec\ServiceContainer;
 
 class FilteredResourceLoaderExtension implements ExtensionInterface
 {
-
     /**
      * @param ServiceContainer $container
      */
@@ -26,9 +25,8 @@ class FilteredResourceLoaderExtension implements ExtensionInterface
             $filters = $c->getParam('humbug.filtered_resource_loader.filters');
             $filteredResourceLoader = new FilteredResourceLoader($c->get('locator.resource_manager'));
             if (null !== $filters && is_array($filters)) {
-
                 foreach ($filters as $class) {
-                    $filter = new $class;
+                    $filter = new $class();
 
                     if (($class === 'Humbug\PhpSpec\Loader\Filter\Specification\FastestFirstFilter'
                     || $class === 'Humbug\PhpSpec\Loader\Filter\Example\FastestFirstFilter')
@@ -44,6 +42,7 @@ class FilteredResourceLoaderExtension implements ExtensionInterface
                     $filteredResourceLoader->addFilter($filter);
                 }
             }
+
             return $filteredResourceLoader;
         });
     }

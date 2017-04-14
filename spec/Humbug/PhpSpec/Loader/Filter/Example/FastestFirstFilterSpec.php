@@ -2,16 +2,15 @@
 
 namespace spec\Humbug\PhpSpec\Loader\Filter\Example;
 
-use PhpSpec\ObjectBehavior;
 use PhpSpec\Loader\Node\ExampleNode;
+use PhpSpec\ObjectBehavior;
 
 class FastestFirstFilterSpec extends ObjectBehavior
 {
-
-    function let()
+    public function let()
     {
         file_put_contents(
-            sys_get_temp_dir() . '/phpspec.times.humbug.json',
+            sys_get_temp_dir().'/phpspec.times.humbug.json',
             json_encode([
                 'specifications' => [
                 ],
@@ -19,30 +18,30 @@ class FastestFirstFilterSpec extends ObjectBehavior
                     'foo' => [
                         [
                             'title' => 'bar1',
-                            'time' => 3
+                            'time'  => 3,
                         ],
                         [
                             'title' => 'bar2',
-                            'time' => 2
+                            'time'  => 2,
                         ],
                         [
                             'title' => 'bar3',
-                            'time' => 1
-                        ]
-                    ]
-                ]
+                            'time'  => 1,
+                        ],
+                    ],
+                ],
             ])
         );
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\FastestFirstFilter');
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\FilterInterface');
         $this->shouldHaveType('\\Humbug\\PhpSpec\\Loader\\Filter\\Example\\AbstractFilter');
     }
 
-    function it_orders_an_array_of_example_nodes(ExampleNode $a, ExampleNode $b, ExampleNode $c)
+    public function it_orders_an_array_of_example_nodes(ExampleNode $a, ExampleNode $b, ExampleNode $c)
     {
         $a->getTitle()->willReturn('bar1');
         $b->getTitle()->willReturn('bar2');
@@ -52,5 +51,4 @@ class FastestFirstFilterSpec extends ObjectBehavior
         $this->setSpecificationTitle('foo');
         $this->filter($nodes)->shouldReturn($expected);
     }
-
 }

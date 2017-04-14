@@ -1,29 +1,28 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
 
 namespace Humbug\PhpSpec\Loader;
 
+use Humbug\PhpSpec\Loader\Filter\Example\AbstractFilter as ExampleFilter;
 use Humbug\PhpSpec\Loader\Filter\FilterInterface as BaseFilterInterface;
 use Humbug\PhpSpec\Loader\Filter\Specification\AbstractFilter as SpecFilter;
-use Humbug\PhpSpec\Loader\Filter\Example\AbstractFilter as ExampleFilter;
+use PhpSpec\Loader\Node;
 use PhpSpec\Loader\ResourceLoader;
 use PhpSpec\Loader\Suite;
-use PhpSpec\Loader\Node;
-use PhpSpec\Util\MethodAnalyser;
 use PhpSpec\Locator\ResourceManagerInterface;
+use PhpSpec\Util\MethodAnalyser;
 use ReflectionClass;
 use ReflectionMethod;
 
 class FilteredResourceLoader extends ResourceLoader
 {
-
     private $filters = [];
 
     /**
@@ -45,8 +44,8 @@ class FilteredResourceLoader extends ResourceLoader
     }
 
     /**
-     * @param string       $locator
-     * @param integer|null $line
+     * @param string   $locator
+     * @param int|null $line
      *
      * @return Suite
      */
@@ -97,7 +96,7 @@ class FilteredResourceLoader extends ResourceLoader
                 }
             }
 
-            foreach($examples as $example) {
+            foreach ($examples as $example) {
                 $spec->addExample($example);
             }
             unset($examples);

@@ -1,26 +1,25 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
 
 namespace Humbug\PhpSpec\Listener;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;;
 use PhpSpec\Event\SpecificationEvent;
 use PhpSpec\Loader\Node\SpecificationNode;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class FreeMemoryListener implements EventSubscriberInterface
 {
-
     public static function getSubscribedEvents()
     {
         return [
-            'afterSpecification' => ['afterSpecification', -100]
+            'afterSpecification' => ['afterSpecification', -100],
         ];
     }
 
@@ -41,6 +40,7 @@ class FreeMemoryListener implements EventSubscriberInterface
     private function getProperties(SpecificationNode $spec)
     {
         $reflection = new \ReflectionObject($spec);
+
         return $reflection->getProperties();
     }
 

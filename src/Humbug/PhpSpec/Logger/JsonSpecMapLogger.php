@@ -1,9 +1,9 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
@@ -12,7 +12,6 @@ namespace Humbug\PhpSpec\Logger;
 
 class JsonSpecMapLogger
 {
-
     private $classes = [];
 
     private $target;
@@ -21,9 +20,10 @@ class JsonSpecMapLogger
     {
         if (null !== $target) {
             $this->target = $target;
+
             return;
         }
-        $this->target = sys_get_temp_dir() . '/phpspec.specmap.humbug.json';
+        $this->target = sys_get_temp_dir().'/phpspec.specmap.humbug.json';
     }
 
     public function logSpecification($srcFile, $specTitle, $specClass, $srcClass)
@@ -31,7 +31,7 @@ class JsonSpecMapLogger
         $this->classes[$srcFile] = [
             'specTitle' => $specTitle,
             'specClass' => $specClass,
-            'srcClass' => $srcClass
+            'srcClass'  => $srcClass,
         ];
     }
 
