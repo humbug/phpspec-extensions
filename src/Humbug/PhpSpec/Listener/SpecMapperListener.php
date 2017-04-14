@@ -1,9 +1,9 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
@@ -11,14 +11,12 @@
 namespace Humbug\PhpSpec\Listener;
 
 use Humbug\PhpSpec\Logger\JsonSpecMapLogger;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use PhpSpec\Event\ExampleEvent;
 use PhpSpec\Event\SpecificationEvent;
 use PhpSpec\Event\SuiteEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SpecMapperListener implements EventSubscriberInterface
 {
-
     public function __construct(JsonSpecMapLogger $logger)
     {
         $this->logger = $logger;
@@ -28,7 +26,7 @@ class SpecMapperListener implements EventSubscriberInterface
     {
         return [
             'afterSpecification' => ['afterSpecification', -10],
-            'afterSuite' => ['afterSuite', -10]
+            'afterSuite'         => ['afterSuite', -10],
         ];
     }
 

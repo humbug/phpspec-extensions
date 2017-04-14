@@ -1,20 +1,17 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
 
 namespace Humbug\PhpSpec\Loader\Filter\Specification;
 
-use PhpSpec\Loader\Node\SpecificationNode;
-
 class IncludeOnlyFilter extends AbstractFilter
 {
-
     private $specs;
 
     public function filter(array $array)
@@ -25,6 +22,7 @@ class IncludeOnlyFilter extends AbstractFilter
                 $include[] = $value;
             }
         }
+
         return $include;
     }
 

@@ -1,9 +1,9 @@
 <?php
 /**
- * Humbug
+ * Humbug.
  *
  * @category   Humbug
- * @package    Humbug
+ *
  * @copyright  Copyright (c) 2015 Pádraic Brady (http://blog.astrumfutura.com)
  * @license    https://github.com/padraic/humbug/blob/master/LICENSE New BSD License
  */
@@ -12,7 +12,6 @@ namespace Humbug\PhpSpec\Logger;
 
 class JsonTimeLogger
 {
-
     private $specifications = [];
 
     private $examples = [];
@@ -23,9 +22,10 @@ class JsonTimeLogger
     {
         if (null !== $target) {
             $this->target = $target;
+
             return;
         }
-        $this->target = sys_get_temp_dir() . '/phpspec.times.humbug.json';
+        $this->target = sys_get_temp_dir().'/phpspec.times.humbug.json';
     }
 
     public function logSpecification($title, $time)
@@ -40,7 +40,7 @@ class JsonTimeLogger
         }
         $this->examples[$spec][] = [
             'title' => $title,
-            'time' => $time
+            'time'  => $time,
         ];
     }
 
@@ -51,7 +51,7 @@ class JsonTimeLogger
             json_encode(
                 [
                     'specifications' => $this->specifications,
-                    'examples' => $this->examples
+                    'examples'       => $this->examples,
                 ],
                 JSON_PRETTY_PRINT
             )
